@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h2>Ayúdame a construirme</h2>
+    <ul>
+      <li>
+        2
+      </li>
+      <li>
+        4
+      </li>
+      <li>
+        8
+      </li>
+    </ul>
+    <input type="button" name="construir" value="Construye" />
+    <input type="button" name="borar Elemento" value="Borrar Ultimo Elemento" />
+    <input type="button" name="borrar num" value="Borrar Elemento num" />
+    <input type="text" name="numero" id="num"/>
+    <input type="button" name="borrar select" value="Borrar seleccionado" >
+    <input type="button" name="dupulicar" value="Duplicar">
+  </body>
+  <script type="text/javascript">
+    var construirInput = document.getElementsByTagName("input")[0];
+    construirInput.addEventListener("click",construirElementoProgresion);
+
+    
+    var borrarInput = document.getElementsByTagName("input")[1];
+    borrarInput.addEventListener("click",borrarUltimoElemento);
+
+    var borrarNum = document.getElementsByTagName("input")[2];
+    borrarNum.addEventListener("click",borrarElementoNum);
+
+    var duplicarNum = document.getElementsByTagName("input")[3];
+    borrarNum.addEventListener("click", duplicarElemento);
+
+    var liList = document.getElementsByTagName("li");
+    for (var i = 0; i< liList.length; i++) {
+      liList[i].addEventListener("click",cambiarColor);
+    }
+    
+
+    var borrarSeleccionado = document.getElementsByTagName("input")[4];
+    borrarSeleccionado.addEventListener("click",borrarElementoSeleccionado);
+
+    function construirElementoProgresion(){
+      var myList = document.getElementsByTagName("ul")[0];
+      var lastChildList = myList.lastElementChild;
+
+      var nextValue = lastChildList.innerText * 2;
+
+      var nextLi = document.createElement("li");
+      var nextContentLi = document.createTextNode(nextValue);
+
+      nextLi.appendChild(nextContentLi);
+
+      myList.appendChild(nextLi);
+      var liList = document.getElementsByTagName("li");
+      for (var i = 0; i< liList.length; i++) {
+        liList[i].addEventListener("click",cambiarColor);
+       }
+
+    }
+
+    function duplicarElemento(){
+      var myList = document.getElementsByTagName("ul")[0];
+      var myListLi = document.getElementsByTagName("li");
+      for (var i = 0; i < myListLi.length; i++) {
+        if (liList[i].style.color=="red") {
+          var lastChildList = myList.lastElementChild;
+          var nextLi = document.createElement("li");
+          var nextContentLi = document.createTextNode(lastElementChild.innerText);
+        }
+      }
+    }
+    
+
+    function borrarUltimoElemento(){
+
+      var myList = document.getElementsByTagName("ul")[0];
+      var lastChildList = myList.lastElementChild;
+      myList.removeChild(lastChildList);
+    }
+
+    function borrarElementoNum(){
+      
+      var myList = document.getElementsByTagName("ul")[0];
+      var inputSelectedNum = document.getElementById("num").value;
+
+      var arrayLi = document.getElementsByTagName("li");
+      var liToRemove = arrayLi[inputSelectedNum-1];
+
+      myList.removeChild(liToRemove);
+    }
+    
+    function cambiarColor(){
+      var liList = document.getElementsByTagName("li");
+      for (var i = 0; i< liList.length; i++) {
+        liList[i].style.color = "black";
+      }
+      this.style.color= "red";
+    }
+
+    function borrarElementoSeleccionado(){
+      var myList = document.getElementsByTagName("ul")[0];
+      var liList = document.getElementsByTagName("li");
+      for (var i = 0; i< liList.length; i++) {
+        if (liList[i].style.color=="red") {
+          myList.removeChild(liList[i]);
+        }
+      }
+
+    }
+
+    
+
+  </script>
+</html>

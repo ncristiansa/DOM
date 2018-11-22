@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+
+      function addElement(parentElement, tag, _text, _arrAttr){
+        var elementChild = document.createElement(tag);
+
+        if (_text != undefined) {
+          var text = document.createTextNode(_text);
+
+          elementChild.appendChild(text);
+        }
+
+                                    //tambien vale el _arrAttr.isArray()
+        if (_arrAttr != undefined && _arrAttr instanceof Array) {
+          for (var i = 0; i < _arrAttr.length; i++) {
+            var attrName = _arrAttr[i].split("=")[0];
+            var attrValue = _arrAttr[i].split("=")[1];
+            elementChild.setAttribute(attrName, attrValue);
+
+          }
+        }
+
+        parentElement.appendChild(elementChild);
+      }
+      function mostrarOcultar(elements,isHidden){
+        //var elementsDiv = document.getElementsByTagName("div");
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].hidden = isHidden;
+        }
+      }
+      /*
+      function ocultar(){
+        var elementsDiv = document.getElementsByTagName("div");
+        for (var i = 0; i < elementsDiv.length; i++) {
+           elementsDiv[i].hidden = true;
+        }
+      }
+      function mostrar(){
+        var elementsDiv = document.getElementsByTagName("div");
+        for (var i = 0; i < elementsDiv.length; i++) {
+           elementsDiv[i].hidden = false;
+        }
+      }
+      */
+      function realizarAccion(){
+        var elementA = document.getElementsByTagName("a")[0];
+        var elementsDiv = document.getElementsByTagName("div");
+        var elementsDivSenars = [];
+
+        for (var i=0; i<elementsDiv.length; i++){
+          if (i%2==0) {
+            elementsDivSenars.push(elementsDiv[i]);
+          }
+        }
+
+        //if (elementA.textContent == "ocultar texto") {
+        if (!elementsDivSenars[0].hidden) {
+          mostrarOcultar(elementsDivSenars,true);
+          elementA.text = "mostrar texto";
+        }
+        else{
+          mostrarOcultar(elementsDivSenars,false);
+          elementA.text = "ocultar texto";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="primero">
+      Muy lejos, más allá de las montañas de palabras, alejados de los países de las vocales y las consonantes, viven los textos simulados. Viven aislados en casas de letras, en la costa de la semántica, un gran océano de lenguas. Un riachuelo llamado Pons fluye por su pueblo y los abastece con las normas necesarias. Hablamos de un país paraisomático en el que a uno le caen pedazos de frases asadas en la boca. Ni siquiera los todopoderosos signos de puntuación dominan a los textos simulados; una vida, se puede decir, poco ortográfica. Pero un buen día, una pequeña línea de texto simulado, llamada Lorem Ipsum, decidió aventurarse y salir al vasto mundo de la gramática. El gran Oxmox le desanconsejó hacerlo, ya que esas tierras estaban llenas de comas malvadas, signos de interrogación salvajes y puntos y coma traicioneros, pero el texto simulado no se dejó atemorizar. Empacó sus siete versales, enfundó su inicial en el cinturón y se puso en camino. Cuando ya había escalado las primeras colinas de las montañas cursivas, se dio media vuelta para dirigir su mirada por última vez, hacia su ciudad natal Letralandia, el encabezamiento del pueblo Alfabeto y el subtítulo de su
+    </div>
+    <div id="segundo">
+      Muy lejos, más allá de las montañas de palabras, alejados de los países de las vocales y las consonantes, viven los textos simulados. Viven aislados en casas de letras, en la costa de la semántica, un gran océano de lenguas. Un riachuelo llamado Pons fluye por su pueblo y los abastece con las normas necesarias. Hablamos de un país paraisomático en el que a uno le caen pedazos de frases asadas en la boca. Ni siquiera los todopoderosos signos de puntuación dominan a los textos simulados; una vida, se puede decir, poco ortográfica. Pero un buen día, una pequeña línea de texto simulado, llamada Lorem Ipsum, decidió aventurarse y salir al vasto mundo de la gramática. El gran Oxmox le desanconsejó hacerlo, ya que esas tierras estaban llenas de comas malvadas, signos de interrogación salvajes y puntos y coma traicioneros, pero el texto simulado no se dejó atemorizar. Empacó sus siete versales, enfundó su inicial en el cinturón y se puso en camino. Cuando ya había escalado las primeras colinas de las montañas cursivas, se dio media vuelta para dirigir su mirada por última vez, hacia su ciudad natal Letralandia, el encabezamiento del pueblo Alfabeto y el subtítulo de su
+    </div>
+    <div id="tercero">
+      Muy lejos, más allá de las montañas de palabras, alejados de los países de las vocales y las consonantes, viven los textos simulados. Viven aislados en casas de letras, en la costa de la semántica, un gran océano de lenguas. Un riachuelo llamado Pons fluye por su pueblo y los abastece con las normas necesarias. Hablamos de un país paraisomático en el que a uno le caen pedazos de frases asadas en la boca. Ni siquiera los todopoderosos signos de puntuación dominan a los textos simulados; una vida, se puede decir, poco ortográfica. Pero un buen día, una pequeña línea de texto simulado, llamada Lorem Ipsum, decidió aventurarse y salir al vasto mundo de la gramática. El gran Oxmox le desanconsejó hacerlo, ya que esas tierras estaban llenas de comas malvadas, signos de interrogación salvajes y puntos y coma traicioneros, pero el texto simulado no se dejó atemorizar. Empacó sus siete versales, enfundó su inicial en el cinturón y se puso en camino. Cuando ya había escalado las primeras colinas de las montañas cursivas, se dio media vuelta para dirigir su mirada por última vez, hacia su ciudad natal Letralandia, el encabezamiento del pueblo Alfabeto y el subtítulo de su
+    </div>
+    <div id="cuarto">
+      Muy lejos, más allá de las montañas de palabras, alejados de los países de las vocales y las consonantes, viven los textos simulados. Viven aislados en casas de letras, en la costa de la semántica, un gran océano de lenguas. Un riachuelo llamado Pons fluye por su pueblo y los abastece con las normas necesarias. Hablamos de un país paraisomático en el que a uno le caen pedazos de frases asadas en la boca. Ni siquiera los todopoderosos signos de puntuación dominan a los textos simulados; una vida, se puede decir, poco ortográfica. Pero un buen día, una pequeña línea de texto simulado, llamada Lorem Ipsum, decidió aventurarse y salir al vasto mundo de la gramática. El gran Oxmox le desanconsejó hacerlo, ya que esas tierras estaban llenas de comas malvadas, signos de interrogación salvajes y puntos y coma traicioneros, pero el texto simulado no se dejó atemorizar. Empacó sus siete versales, enfundó su inicial en el cinturón y se puso en camino. Cuando ya había escalado las primeras colinas de las montañas cursivas, se dio media vuelta para dirigir su mirada por última vez, hacia su ciudad natal Letralandia, el encabezamiento del pueblo Alfabeto y el subtítulo de su
+    </div>
+    <div id="quinto">
+      Muy lejos, más allá de las montañas de palabras, alejados de los países de las vocales y las consonantes, viven los textos simulados. Viven aislados en casas de letras, en la costa de la semántica, un gran océano de lenguas. Un riachuelo llamado Pons fluye por su pueblo y los abastece con las normas necesarias. Hablamos de un país paraisomático en el que a uno le caen pedazos de frases asadas en la boca. Ni siquiera los todopoderosos signos de puntuación dominan a los textos simulados; una vida, se puede decir, poco ortográfica. Pero un buen día, una pequeña línea de texto simulado, llamada Lorem Ipsum, decidió aventurarse y salir al vasto mundo de la gramática. El gran Oxmox le desanconsejó hacerlo, ya que esas tierras estaban llenas de comas malvadas, signos de interrogación salvajes y puntos y coma traicioneros, pero el texto simulado no se dejó atemorizar. Empacó sus siete versales, enfundó su inicial en el cinturón y se puso en camino. Cuando ya había escalado las primeras colinas de las montañas cursivas, se dio media vuelta para dirigir su mirada por última vez, hacia su ciudad natal Letralandia, el encabezamiento del pueblo Alfabeto y el subtítulo de su
+    </div>
+    <a href="#" onclick="realizarAccion()">ocultar texto</a>
+  </body>
+
+  <script type="text/javascript">
+    var div3 = document.getElementById("tercero");
+    var arr = array();
+    arr[0] = 'src=http://www.google.es';
+    
+    addElement(div3, "img",undefined , arr);
+  </script>
+</html>

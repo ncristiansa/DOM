@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    
+    <form action="get" method="??">
+      <label for="cursos" > Seleccionar curso:</label><br />
+      <input type="radio" name="cursos" value="html"> HTML<br />
+      <input type="radio" name="cursos" value="css"> CSS<br />
+      <input type="radio" name="cursos" value="otro"> Otro<br />
+      <label for="otros_input" hidden="true">Especificar:</label>
+      <input type="text" name="otros_input" hidden="true"/>
+      <input type="submit" />
+    </form>
+
+    <script type="text/javascript">
+      var radioOtros = document.querySelector("input[value=otro]");
+      radioOtros.addEventListener("click", visualizarEspecificar);
+      function visualizarEspecificar(){
+        /*
+        var myLabel = document.querySelector("label[hidden=true]");
+        myLabel.hidden= false;
+        var myInput = document.querySelector("input[hidden=true]");
+        myInput.hidden = false;
+        */
+
+        var mySubmit = document.querySelector("input[type=submit]");
+        var myLabel = document.createElement("label");
+        var myInput = document.createElement("input");
+        var textMyLabel = document.createTextNode("Especificar");
+        myLabel.appendChild(textMyLabel);
+        document.querySelector("form").insertBefore(myLabel, mySubmit);
+        document.querySelector("form").insertBefore(myInput,mySubmit);
+        addElement()
+      }
+      function addElement(parentElement, tag, _text, _arrAttr){
+        var elementChild = document.createElement(tag);
+
+        if (_text != undefined) {
+          var text = document.createTextNode(_text);
+
+          elementChild.appendChild(text);
+        }
+
+                                    //tambien vale el _arrAttr.isArray()
+        if (_arrAttr != undefined && _arrAttr instanceof Array) {
+          for (var i = 0; i < _arrAttr.length; i++) {
+            var attrName = _arrAttr[i].split("=")[0];
+            var attrValue = _arrAttr[i].split("=")[1];
+            elementChild.setAttribute(attrName, attrValue);
+
+          }
+        }
+
+        parentElement.appendChild(elementChild);
+      }
+    </script>
+  </body>
+</html>
